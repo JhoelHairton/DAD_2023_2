@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: ms-gateway-service
+  profiles:
+    active: development
+  config:
+    import: optional:configserver:http://root:jol@localhost:7070
+
+
+
