@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8083
 springdoc:
   api-docs:
     enabled: true
@@ -14,7 +14,6 @@ spring:
     show-sql: true
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ms-pedido
+    url: jdbc:mysql://localhost:3306/ms-catalogo
     username: root
     password:
-
