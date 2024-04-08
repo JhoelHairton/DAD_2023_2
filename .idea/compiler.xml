@@ -8,13 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
+        <module name="ms-pedido" />
         <module name="demo" />
         <module name="eureka-server" />
         <module name="ms-catalogo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ms-pedido" target="17" />
       <module name="ms-regystry-server" target="17" />
     </bytecodeTargetLevel>
   </component>
