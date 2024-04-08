@@ -24,3 +24,9 @@ spring:
           uri: lb://ms-catalogo-cliente
           predicates:
             - Path=/cliente/**
+
+        - id: ms-pedido-cliente
+          uri: lb://ms-pedido-cliente
+          predicates:
+            - Path=/pedido/**
+
