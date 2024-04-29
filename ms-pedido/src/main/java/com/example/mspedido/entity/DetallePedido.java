@@ -1,6 +1,7 @@
 package com.example.mspedido.entity;
 
 import com.example.mspedido.dto.Cliente;
+import com.example.mspedido.dto.Producto;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,5 +21,6 @@ public class DetallePedido {
     private double subtotal;
 
     @Transient
-    private Cliente producto;
+
+    private Producto producto;
 }
