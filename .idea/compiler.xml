@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
-        <module name="ms-gateway-server" />
         <module name="ms-pedido" />
         <module name="demo" />
         <module name="eureka-server" />

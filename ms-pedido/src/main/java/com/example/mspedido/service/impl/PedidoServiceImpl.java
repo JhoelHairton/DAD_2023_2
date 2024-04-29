@@ -1,6 +1,8 @@
 package com.example.mspedido.service.impl;
 
 import com.example.mspedido.entity.Pedido;
+import com.example.mspedido.feign.ClienteFeign;
+import com.example.mspedido.feign.ProductoFeign;
 import com.example.mspedido.repository.PedidosRepository;
 import com.example.mspedido.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,14 @@ import java.util.Optional;
 public class PedidoServiceImpl implements PedidoService {
     @Autowired
     private PedidosRepository pedidosRepository;
+
+    @Autowired
+    private ClienteFeign clienteFeign;
+
+    @Autowired
+    private ProductoFeign productoFeign;
+
+
     @Override
     public List<Pedido> listar() {
         return pedidosRepository.findAll();

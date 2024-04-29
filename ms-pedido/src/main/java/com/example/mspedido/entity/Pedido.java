@@ -1,5 +1,6 @@
 package com.example.mspedido.entity;
 
+import com.example.mspedido.dto.Cliente;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,7 +14,6 @@ public class Pedido {
     private int idPedido;
 
     private Date fechaPedido;
-    private String cliente;
     private String direccionEntrega;
     private String metodoPago;
     private String estado;
@@ -23,4 +23,8 @@ public class Pedido {
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<DetallePedido> detalles;
+
+    @Transient
+    private Cliente cliente;
+
 }

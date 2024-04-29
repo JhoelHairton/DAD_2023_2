@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/categoria")
+
 public class CategoriaController {
     @Autowired
     private CategoriaService categoriaService;
