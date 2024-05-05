@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/producto")
@@ -35,8 +36,10 @@ public class ProductoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Producto>listaPorld(@PathVariable(required = true) Integer id){
-        return ResponseEntity.ok(productoService.listaPorld(id).get());
+        return ResponseEntity.ok().body(productoService.listaPorld(id).get());
     }
+
+
 
     @DeleteMapping ("/{id}")
     public ResponseEntity<List<Producto>>eliminar(@PathVariable(required = true) Integer id){

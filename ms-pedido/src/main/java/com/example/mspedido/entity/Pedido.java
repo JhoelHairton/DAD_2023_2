@@ -18,13 +18,14 @@ public class Pedido {
     private String numero;
     private String descripcion;
     private Integer clienteId;
-    @JsonIgnoreProperties("pedido") // Evita el bucle infinito al serializar
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "venta_id")
-    private List<Pedido> detalle;
+    private List<DetallePedido> detalle;
 
     @Transient
     private Cliente cliente;
+
 
 
 }

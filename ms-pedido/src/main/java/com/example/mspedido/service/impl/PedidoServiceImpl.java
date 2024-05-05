@@ -44,16 +44,17 @@ public class PedidoServiceImpl implements PedidoService {
     @Override
     public Optional<Pedido> listaPorld(Integer id) {
 
-        Optional<Pedido> pedido = pedidosRepository.findById(id);
-        Cliente clienteDto = clienteFeign.listaPorld(pedido.get().getCliente().getId()).getBody();
-
-        List<DetallePedido> pedidoDetalles = pedido.get().getDetalles().stream().map(pedidoDetalle -> {
-            pedidoDetalle.setProducto(productoFeign.listaPorld(pedidoDetalle.getProducto().getId()).getBody());
+        Pedido pedido = pedidosRepository.findById(id).get();
+        Cliente cliente = clienteFeign.listaPorld(pedido.getClienteId()).getBody();
+        System.out.println(cliente.toString());
+        List<DetallePedido> Detallespedido = pedido.getDetalle().stream().map(pedidoDetalle -> {
+            Producto producto = productoFeign.listaPorld(pedidoDetalle.getProductoId()).getBody();
+            pedidoDetalle.setProducto(producto);
             return pedidoDetalle;
-        }).toList();
-        pedido.get().setCliente(clienteDto);
-        pedido.get().setDetalles(pedidoDetalles);
-        return pedidosRepository.findById(id);
+        }).collect(Collectors.toList());
+        pedido.setDetalle(Detallespedido);
+        pedido.setCliente(cliente);
+        return Optional.of(pedido);
     }
 
 

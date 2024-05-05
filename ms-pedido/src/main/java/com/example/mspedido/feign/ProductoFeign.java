@@ -14,6 +14,7 @@ public interface ProductoFeign {
 
     public ResponseEntity<Producto>listaPorld(@PathVariable(required = true) Integer id);
 
+
     default ResponseEntity<Producto> fallbackProducto(Integer id, Exception e) {
         // Lógica de fallback, por ejemplo, devolver una respuesta predeterminada
         return ResponseEntity.ok(new Producto());
