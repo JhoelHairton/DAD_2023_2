@@ -10,17 +10,14 @@ import lombok.Data;
 public class DetallePedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idDetalle;
-
-    @ManyToOne
-    @JoinColumn(name = "pedido_id")
-    private Pedido pedido;
-
-    private int cantidad;
-    private double precioUnitario;
-    private double subtotal;
-
+    private Integer id;
+    private Double cantidad;
+    private Double precio;
+    private Integer productoId;
     @Transient
-
     private Producto producto;
+    public DetallePedido() {
+        this.cantidad = (double) 0;
+        this.precio = (double) 0;
+    }
 }
